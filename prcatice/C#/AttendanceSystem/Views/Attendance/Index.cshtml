@@ -1,0 +1,30 @@
+@model List<AttendanceSystem.Models.Attendance>
+
+<h2>員工考勤管理</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>員工編號</th>
+            <th>姓名</th>
+            <th>日期</th>
+            <th>上班時間</th>
+            <th>下班時間</th>
+            <th>工時</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeId</td>
+                <td>@item.Name</td>
+                <td>@item.Date.ToString("yyyy-MM-dd")</td>
+                <td>@item.CheckIn</td>
+                <td>@item.CheckOut</td>
+                <td>@item.WorkHours</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="ExportToExcel" class="btn btn-success">下載 Excel 報表</a>
